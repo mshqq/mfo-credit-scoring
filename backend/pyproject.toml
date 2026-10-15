@@ -1,0 +1,32 @@
+[project]
+name = "mfo-credit-scoring-backend"
+version = "0.1.0"
+description = "Backend API for an MFO client creditworthiness assessment system using machine learning"
+readme = "README.md"
+authors = [
+    { name = "mshqq", email = "miahasik@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.143.0",
+    "pydantic[email]>=2.14.1",
+    "pydantic-settings>=2.15.0",
+    "python-dotenv>=1.2.4",
+    "sqlalchemy>=2.1.4",
+    "uvicorn>=0.54.0",
+    "werkzeug>=3.1.9",
+    "psycopg[binary]>=3.3.6",
+]
+
+[project.scripts]
+backend = "backend:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+package = false
+
+[tool.ruff.lint]
+ignore = ["B008"]
