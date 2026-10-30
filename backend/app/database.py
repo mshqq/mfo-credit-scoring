@@ -4,7 +4,7 @@ from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 from .config import settings
 
-connect_args = {}
+connect_args: dict[str, bool] = {}
 
 if settings.database_url.startswith("sqlite"):
     connect_args = {"check_same_thread": False}
@@ -36,6 +36,8 @@ def get_db():
 
 
 def init_db():
+    from .models.application import Application  # noqa: F401
+    from .models.client import Client  # noqa: F401
     from .models.user import User  # noqa: F401
 
     Base.metadata.create_all(bind=engine)
