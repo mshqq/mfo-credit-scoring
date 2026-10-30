@@ -1,10 +1,13 @@
-import pydantic_settings.main
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
     app_name: str = "MFO Credit Scoring"
     debug: bool = False
+
+    secret_key: str
+    algorithm: str = "HS256"
+    access_token_expire_minutes: int = 30
 
     database_url: str = "sqlite:///./mfo.db"
 
@@ -18,7 +21,10 @@ class Settings(BaseSettings):
     static_dir: str = "static"
     images_dir: str = "static/images"
 
-    model_config: pydantic_settings.main.SettingsConfigDict = SettingsConfigDict(
+    reject_threshold: float = 0
+    approve_threshold: float = 1
+
+    model_config = SettingsConfigDict(
         env_file=".env", env_file_encoding="utf-8", extra="ignore"
     )
 

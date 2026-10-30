@@ -1,6 +1,5 @@
 from datetime import datetime
 
-import pydantic.config
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
 
@@ -9,15 +8,20 @@ class UserBase(BaseModel):
 
 
 class UserCreate(UserBase):
+    first_name: str = Field(max_length=255)
+    last_name: str = Field(max_length=255)
+    middle_name: str = Field(max_length=255)
+
     password: str = Field(min_length=8, max_length=128)
-
-
-class UserLogin(UserBase):
-    password: str
 
 
 class UserResponse(UserBase):
     id: int
-    created_at: datetime
+    first_name: str
+    last_name: str
+    middle_name: str
 
-    model_config: pydantic.config.ConfigDict = ConfigDict(from_attributes=True)
+    created_at: datetime
+    is_active: bool
+
+    model_config = ConfigDict(from_attributes=True)

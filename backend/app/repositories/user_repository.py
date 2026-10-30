@@ -22,7 +22,12 @@ class UserRepository:
         return self.db.scalars(statement).first()
 
     def create(self, user_data: UserCreate) -> User:
-        db_user = User(email=str(user_data.email))
+        db_user = User(
+            email=str(user_data.email),
+            first_name=user_data.first_name,
+            last_name=user_data.last_name,
+            middle_name=user_data.middle_name,
+        )
         db_user.set_password(user_data.password)
 
         self.db.add(db_user)
