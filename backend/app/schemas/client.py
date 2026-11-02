@@ -1,9 +1,8 @@
 from datetime import date, datetime
-from decimal import Decimal
 
 from pydantic import BaseModel, ConfigDict, Field, field_serializer, field_validator
 
-from app.models.client import Education, Gender, MaritalStatus
+from app.models.client import Gender
 
 
 def _mask(value: str, keep: int = 4) -> str:
@@ -23,23 +22,6 @@ class ClientBase(BaseModel):
     registration_address: str
     snils: str
     inn: str
-
-    car_own_flg: bool = False
-    car_type_flg: bool = False
-
-    marital_status: MaritalStatus
-    dependents: int = Field(default=0, ge=0, le=20)
-    education: Education
-
-    income: int = Field(ge=0)
-    extra_income: int = Field(default=0, ge=0)
-
-    has_house: bool = False
-    has_apartment: bool = False
-
-    amount: int = Field(gt=0)
-    term: int = Field(gt=0)
-    rate: Decimal = Field(ge=0, max_digits=5, decimal_places=2)
 
     @field_validator("birth_date")
     def validate_age(cls, v: date) -> date:
