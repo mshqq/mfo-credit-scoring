@@ -3,7 +3,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from app.config import settings
-from app.routes import application_router, auth_router, clients_router, health_router
+from app.routes import (
+    application_router,
+    auth_router,
+    clients_router,
+    health_router,
+    users_router,
+)
 
 app = FastAPI(
     title=settings.app_name,
@@ -23,6 +29,7 @@ app.add_middleware(
 
 app.mount("/static", StaticFiles(directory=settings.static_dir), name="static")
 
+app.include_router(users_router)
 app.include_router(clients_router)
 app.include_router(health_router)
 app.include_router(auth_router)
