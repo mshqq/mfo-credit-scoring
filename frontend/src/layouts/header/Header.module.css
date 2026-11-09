@@ -1,0 +1,17 @@
+@reference '../../index.css';
+
+.header {
+  @apply bg-accent shadow shadow-white;
+}
+.container {
+  @apply flex items-center justify-between;
+}
+.logo {
+  @apply flex items-center justify-between;
+}
+.logo_img {
+  @apply h-15 w-27;
+}
+.logo_p {
+  @apply text-2xl;
+}
