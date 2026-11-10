@@ -1,1 +1,12 @@
 @import 'tailwindcss';
+@theme {
+  --color-brand: #ff4d8d;
+  --color-accent: #ff8fb1;
+  --color-page: #ffdde5;
+  --color-ink: #1b1b1f;
+  --color-secondary: #2a2a30;
+}
+
+body {
+  @apply m-0 bg-page text-ink;
+}
