@@ -1,7 +1,6 @@
-import { Layout, type MenuProps } from 'antd';
+import { Layout, Menu, type MenuProps } from 'antd';
 import { Content } from 'antd/es/layout/layout';
 import Sider from 'antd/es/layout/Sider';
-import { Menu } from 'antd';
 import { Outlet } from 'react-router-dom';
 import { uiKitSections } from '../config/UIKitSections';
 
@@ -56,7 +55,7 @@ export default function UIKitLayout() {
       </Sider>
 
       <Content>
-        <main className="p-8">
+        <main className="p-8 bg-pink-300/30">
           <Outlet />
         </main>
       </Content>
