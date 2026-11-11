@@ -1,109 +1,80 @@
-import { Button, Card, Flex, Tag, Typography } from 'antd';
-import { ArrowRight } from 'lucide-react';
-import { colorsItems, gradientColors, semanticColors, statusColors } from './ColorsSection.data';
+import { Card, Flex, Typography } from 'antd';
+import { colorsItems, semanticColors } from './ColorsSection.data';
 
-export function ColorsSection() {
+export default function ColorsSection() {
   return (
-    <div>
-      <div>
+    <section id="colors">
+      <Flex vertical align="baseline" style={{ marginBottom: '16px' }}>
         <Typography.Title level={2}>Цвета</Typography.Title>
         <Typography.Text type="secondary">
-          Цветовая палитра FINO на основе Ant Design
+          Цветовая палитра FINO на основе Ant Design.
         </Typography.Text>
-      </div>
+      </Flex>
       <Card style={{ boxShadow: '0px 0px 50px 0px rgba(34, 60, 80, 0.15)' }}>
-        <Typography.Title level={3}>Основная палитра</Typography.Title>
-        <Flex justify="space-between">
+        <Typography.Title level={3} style={{ fontSize: '20px' }}>
+          Основная палитра
+        </Typography.Title>
+        <div className="grid grid-cols-6 gap-4">
           {colorsItems.map(({ label, color }) => (
-            <div>
+            <Flex vertical key={label} gap={6}>
               <div
                 style={{
                   backgroundColor: `${color}`,
-                  width: 64,
-                  height: 32,
+                  width: 128,
+                  height: 64,
                   borderRadius: 6,
                   boxShadow: '0px 0px 50px 0px rgba(0, 0, 0, 0.15)',
-                }}
-              ></div>
-              <Typography.Text strong>{label}</Typography.Text>
-              <p>{color}</p>
-            </div>
-          ))}
-        </Flex>
-      </Card>
-
-      <Card>
-        <Typography.Title level={3}>Семантические цвета</Typography.Title>
-        <Flex justify="space-between">
-          {semanticColors.map(({ label, color }) => (
-            <div>
-              <div
-                style={{
-                  backgroundColor: `${color}`,
-                  width: 64,
-                  height: 32,
-                  borderRadius: 6,
-                  boxShadow: '0px 0px 50px 0px rgba(0, 0, 0, 0.15)',
-                }}
-              ></div>
-              <Typography.Text strong>{label}</Typography.Text>
-              <p>{color}</p>
-            </div>
-          ))}
-        </Flex>
-      </Card>
-      <Card>
-        <Typography.Title level={3}>Градиенты</Typography.Title>
-        <Flex vertical>
-          {gradientColors.map(({ label, startColor, endColor }) => (
-            <Flex>
-              <div
-                style={{
-                  background: `linear-gradient(to right, ${startColor}, ${endColor})`,
-                  width: 64,
-                  height: 32,
-                  borderRadius: 6,
                 }}
               ></div>
               <Flex vertical>
-                <Typography.Text>{label}</Typography.Text>
-                <p>
-                  {`${startColor}
-                  ->s\
-                  ${endColor}`}
-                </p>
+                <Typography.Text strong>{label}</Typography.Text>
+                <Typography.Text type="secondary" style={{ fontSize: '12px' }}>
+                  {color}
+                </Typography.Text>
               </Flex>
             </Flex>
           ))}
-        </Flex>
-      </Card>
-      <Card>
-        <Typography.Title level={3}>Цвета статусов заявок</Typography.Title>
-        <Flex gap={10}>
-          {statusColors.map(({ label, color }) => (
-            <Tag className="font-medium" color={color}>
-              {label}
-            </Tag>
+        </div>
+        <Typography.Title level={3} style={{ fontSize: '20px', margin: '28px 0 12px' }}>
+          Семантические цвета
+        </Typography.Title>
+        <div className="grid grid-cols-4 gap-4">
+          {semanticColors.map(({ label, color }) => (
+            <Flex vertical key={label} gap={6}>
+              <div
+                style={{
+                  backgroundColor: `${color}`,
+                  width: 208,
+                  height: 64,
+                  borderRadius: 6,
+                  boxShadow: '0px 0px 50px 0px rgba(0, 0, 0, 0.15)',
+                }}
+              ></div>
+              <Flex vertical>
+                <Typography.Text strong>{label}</Typography.Text>
+                <Typography.Text type="secondary">{color}</Typography.Text>
+              </Flex>
+            </Flex>
           ))}
+        </div>
+        <Flex
+          vertical
+          style={{
+            background: 'linear-gradient(to right, #EC4899, #BE185D)',
+            padding: '24px',
+            marginTop: '28px',
+            borderRadius: 8,
+            boxShadow: '0px 0px 50px 0px rgba(0, 0, 0, 0.15)',
+          }}
+        >
+          <Typography.Text strong style={{ fontSize: '22px', color: '#FFFFFF' }}>
+            Фирменный градиент
+          </Typography.Text>
+          <Typography.Text style={{ fontSize: '14px', color: '#FFFFFF' }}>
+            Для акцентных блоков и обложек
+          </Typography.Text>
         </Flex>
       </Card>
-      <Card>
-        <Typography.Title level={3}>Примеры использования</Typography.Title>
-        <Flex gap={8}>
-          <Button
-            style={{ background: 'linear-gradient(to right, #EC4899, #dd7cb1)' }}
-            type="primary"
-          >
-            Оформить заявку
-            <ArrowRight />
-          </Button>
-          <Button>Отмена</Button>
-          <Button type="text" style={{ color: '#F9ABD4' }}>
-            Подробнее
-            <ArrowRight />
-          </Button>
-        </Flex>
-      </Card>
-    </div>
+    </section>
   );
 }

@@ -13,15 +13,3 @@ export const semanticColors = [
   { label: 'Ошибка', color: '#f5a216' },
   { label: 'Информация', color: '#3B82F6' },
 ];
-
-export const gradientColors = [
-  { label: 'Основной градиент', startColor: '#EC4899', endColor: '#dd7cb1' },
-  { label: 'Мягкий градиент', startColor: '#fdf2f8', endColor: '#ffe5f2' },
-];
-
-export const statusColors = [
-  { label: 'Одобрено', color: '#72C55F' },
-  { label: 'Отказано', color: '#EF4444' },
-  { label: 'На проверке', color: '#f5a216' },
-  { label: 'Черновик', color: '#6B7280' },
-];
