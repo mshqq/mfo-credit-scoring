@@ -3,6 +3,7 @@ import { Content } from 'antd/es/layout/layout';
 import Sider from 'antd/es/layout/Sider';
 import { Outlet } from 'react-router-dom';
 import { uiKitSections } from '../config/UIKitSections';
+import logo from '../assets/logo.png';
 
 const menuItems = uiKitSections.map(({ id, label, icon: Icon }) => ({
   key: id,
@@ -26,12 +27,10 @@ export default function UIKitLayout() {
       >
         <div className="flex flex-col h-full">
           <a href="#overview" className="flex items-center gap-3 px-6 py-8">
-            <div className="w-8 h-8 bg-pink-300 rounded-full flex items-center justify-center">
-              🌸
-            </div>
+            <img src={logo} className="w-16 h-full flex items-center justify-center"></img>
             <div className="flex flex-col leading-none">
-              <strong className="text-xl font-bold text-gray-900">FINO</strong>
-              <span className="text-xs text-gray-500 mt-1">Design System</span>
+              <strong className="text-2xl font-bold text-gray-900">FINO</strong>
+              <span className="text-sm text-gray-500 mt-1">Design System</span>
             </div>
           </a>
           <div className="flex-1 overflow-y-auto custom-menu">

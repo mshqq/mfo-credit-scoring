@@ -15,5 +15,5 @@ export const uiKitSections = [
   { id: 'inputs', label: 'Элементы формы', icon: ClipboardPenLine },
   { id: 'tags', label: 'Теги и статусы', icon: Tags },
   { id: 'tables', label: 'Таблицы', icon: TableCellsMerge },
-  { id: 'examples', label: 'Примеры использования', icon: Sparkles },
+  { id: 'example', label: 'Пример использования', icon: Sparkles },
 ];

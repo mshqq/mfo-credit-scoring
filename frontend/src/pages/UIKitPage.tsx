@@ -3,6 +3,9 @@ import ColorsSection from '../components/UIKitSections/ColorsSection';
 import TypographySection from '../components/UIKitSections/TypographySection';
 import ButtonsSection from '../components/UIKitSections/ButtonsSection';
 import TablesSection from '../components/UIKitSections/TablesSection';
+import TagsSection from '../components/UIKitSections/TagsSection';
+import ExampleSection from '../components/UIKitSections/ExampleSection';
+import InputsSection from '../components/UIKitSections/InputsSection';
 
 function UIKitPage() {
   return (
@@ -22,7 +25,13 @@ function UIKitPage() {
       <Divider />
       <ButtonsSection />
       <Divider />
+      <InputsSection />
+      <Divider />
+      <TagsSection />
+      <Divider />
       <TablesSection />
+      <Divider />
+      <ExampleSection />
     </div>
   );
 }
